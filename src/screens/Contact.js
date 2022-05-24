@@ -2,7 +2,19 @@ import React, { useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, StyleSheet, View } from "react-native";
 import Checkbox from "expo-checkbox";
 
+import { useFonts, WorkSans_400Regular } from "@expo-google-fonts/work-sans";
+import { Nunito_700Bold } from "@expo-google-fonts/nunito";
+import AppLoading from "expo-app-loading";
+
 const Contact = ({navigation}) => {
+    let [fontsLoaded] = useFonts({
+        WorkSans_400Regular,
+        Nunito_700Bold,
+      });
+    
+      if (!fontsLoaded) {
+        <AppLoading />;
+      }
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -116,7 +128,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#7d7d7d",
         paddingBottom: 20,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
         lineHeight: 25,
       },
       
@@ -129,7 +141,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: "#7d7d7d",
         paddingBottom: 5,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
         lineHeight: 25,
       },
 
@@ -149,13 +161,13 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         marginTop: 20,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
       },
 
       wrapperText: {
         marginLeft: 10,
         color: "#7d7d7d",
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
       },
 
       buttonStyle: {

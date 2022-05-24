@@ -1,8 +1,20 @@
 import { View, Text, FlatList, StyleSheet, Image } from "react-native";
 import React, { useState, useEffect } from "react";
+
+import { useFonts, WorkSans_400Regular } from "@expo-google-fonts/work-sans";
+import { Nunito_700Bold } from "@expo-google-fonts/nunito";
 import AppLoading from "expo-app-loading";
 
 const UserData = () => {
+  let [fontsLoaded] = useFonts({
+    WorkSans_400Regular,
+    Nunito_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    <AppLoading />;
+  }
+
   const [isLoaded, setIsLoaded] = useState(true);
   const [myData, setMyData] = useState([]);
 

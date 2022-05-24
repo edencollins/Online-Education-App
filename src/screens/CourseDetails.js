@@ -2,9 +2,22 @@ import React from "react";
 import { Image, Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import Courses from "../api/Courseapi";
 
+import { useFonts, WorkSans_400Regular } from "@expo-google-fonts/work-sans";
+import { Nunito_700Bold } from "@expo-google-fonts/nunito";
+import AppLoading from "expo-app-loading";
+
 const CourseDetails = ({ navigation, route }) => {
+    let [fontsLoaded] = useFonts({
+        WorkSans_400Regular,
+        Nunito_700Bold,
+      });
+    
+      if (!fontsLoaded) {
+        <AppLoading />;
+      }
+
     const id = route.params.courseId;
-    console.log(id);
+    // console.log(id);
 
     const selectedCourse = Courses.find((element) => {
         return id === element.id;
@@ -24,11 +37,11 @@ const CourseDetails = ({ navigation, route }) => {
 
                 <Text style={styles.description}>{selectedCourse.description}</Text>
 
-                <Text style={styles.description}>{selectedCourse.course1}</Text>
+                <Text style={styles.subHeader}>{selectedCourse.course1}</Text>
 
-                <Text style={styles.description}>{selectedCourse.course2}</Text>
+                <Text style={styles.subHeader}>{selectedCourse.course2}</Text>
 
-                <Text style={styles.description}>{selectedCourse.course3}</Text>
+                <Text style={styles.subHeader}>{selectedCourse.course3}</Text>
 
                 <View style={styles.buttonContainer}>
                     <Text style={styles.price}>₹{selectedCourse.price}</Text>
@@ -74,12 +87,22 @@ const styles = StyleSheet.create({
         // fontWeight: 500,
         paddingBottom: 15,
         textAlign: 'center',
-        fontFamily: 'Nunito_600SemiBold',
+        fontFamily: 'Nunito_700Bold',
+    },
+
+    subHeader: {
+        fontSize: 18,
+        color: "#344055",
+        textTransform: "uppercase",
+        fontWeight: "500",
+        paddingBottom: 15,
+        fontFamily: "WorkSans_400Regular",
+        textAlign: "center",
     },
 
     description: {
         textAlign: 'left',
-        fontFamily: 'JosefinSans_400Regular',
+        fontFamily: 'WorkSans_400Regular',
         paddingBottom: 15,
         lineHeight: 20,
         fontSize: 16,
@@ -102,7 +125,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 5,
         borderTopLeftRadius: 5,
         fontSize: 20,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
         textAlign: "center",
       },
 
@@ -119,7 +142,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 20,
         color: '#eee',
-        fontFamily: 'JosefinSans_500Medium',
+        fontFamily: 'WorkSans_500Medium',
         textTransform: 'capitalize',
     },
 });

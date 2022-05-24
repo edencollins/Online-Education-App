@@ -3,16 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppLoading from "expo-app-loading";
 
-import {
-  useFonts,
-  JosefinSans_400Regular,
-  JosefinSans_500Medium,
-} from '@expo-google-fonts/josefin-sans';
-
-import {
-  Nunito_600SemiBold,
-  Nunito_700Bold,
-} from '@expo-google-fonts/nunito';
+import { useFonts, WorkSans_400Regular } from "@expo-google-fonts/work-sans";
+import { Nunito_700Bold } from "@expo-google-fonts/nunito";
 
 import Home from './src/screens/Home';
 import About from "./src/screens/About";
@@ -24,15 +16,13 @@ import CourseDetails from "./src/screens/CourseDetails";
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-  let [fontLoaded] = useFonts({
-    JosefinSans_400Regular,
-    JosefinSans_500Medium,
-    Nunito_600SemiBold,
+  let [fontsLoaded] = useFonts({
+    WorkSans_400Regular,
     Nunito_700Bold,
   });
 
-  if (!fontLoaded) {
-    <AppLoading />
+  if (!fontsLoaded) {
+    <AppLoading />;
   }
 
   return <NavigationContainer>

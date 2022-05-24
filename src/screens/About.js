@@ -1,7 +1,20 @@
 import React from "react";
 import { Image, Linking, Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
+import { useFonts, WorkSans_400Regular } from "@expo-google-fonts/work-sans";
+import { Nunito_700Bold } from "@expo-google-fonts/nunito";
+import AppLoading from "expo-app-loading";
+
 const About = () => {
+    let [fontsLoaded] = useFonts({
+        WorkSans_400Regular,
+        Nunito_700Bold,
+      });
+    
+    if (!fontsLoaded) {
+        <AppLoading />;
+    }
+
     return (
         <View style={styles.aboutContainer}>
             <Text style={styles.mainHeader}> Darshan Dilip Ghorpade </Text>
@@ -98,7 +111,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#7d7d7d",
         paddingBottom: 30,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
       },
 
       aboutLayout: {
@@ -121,7 +134,7 @@ const styles = StyleSheet.create({
       aboutPara: {
         color: "#fff",
         fontSize: 18,
-        fontFamily: "JosefinSans_400Regular",
+        fontFamily: "WorkSans_400Regular",
         lineHeight: 26,
       },
 
