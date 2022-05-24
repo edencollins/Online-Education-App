@@ -3,7 +3,7 @@ An online education app UI using React-Native
 
 ### Screens
 
-<img src="https://user-images.githubusercontent.com/87860114/170026232-207156bd-08e5-4a66-997e-ebacfac42d12.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/87860114/170026232-207156bd-08e5-4a66-997e-ebacfac42d12.png" width=50% height=40%>
 
 ![Course Screen](https://user-images.githubusercontent.com/87860114/170026881-46d71dda-8283-45c1-865e-5fc84bfd29f1.png)
 
